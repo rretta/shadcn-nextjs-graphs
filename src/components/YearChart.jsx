@@ -36,8 +36,8 @@ const chartConfig = {
   return (
     <Card className="bg-transparent mx-auto w-full lg:max-w-6xl border-none">
       <CardHeader>
-        <CardTitle className="text-3xl text-white">Movie Ratings</CardTitle>
-        <CardDescription className="text-white">2005 - 2024</CardDescription>
+        <CardTitle className="text-3xl text-white">Movie Ratings 2005 - 2024</CardTitle>
+        <CardDescription className="text-white">*ratings based on top 20 movies for each year</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="h-[500px] w-full  bg-transparent">

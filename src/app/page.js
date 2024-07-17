@@ -2,11 +2,13 @@
 import { YearsChart } from "@/components/YearChart";
 import { useEffect, useState } from "react";
 import "../app/globals.css";
+import IndividualCard from "@/components/IndividualCard";
 // import IndividualCard from "@/components/IndividualCard";
 
 export default function Home() {
   const [topMovies, setTopMovies] = useState({});
-  const [trendingMovies, setTrendingMovies] = useState({});
+  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [genreMovies, setGenreMovies] = useState([]);
   const [averages, setAverages] = useState({});
 
 
@@ -44,6 +46,21 @@ export default function Home() {
     }
 
 
+    const fetchGenreMovies = async () => {
+      try {
+        const response = await fetch('/api/genre-movies');
+        const data = await response.json();
+
+        console.log("GENERO", data)
+        setGenreMovies(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+
+    fetchGenreMovies()
+
     fetchTrendingMovies();
 
 
@@ -54,7 +71,14 @@ export default function Home() {
     <main className="">
       <div className="">
         <YearsChart averanges={averages} />
-        {/* <IndividualCard /> */}
+
+        <h1 className="text-3xl font-bold">TRENDING RN</h1>
+        {trendingMovies.map((movie) => (
+          <IndividualCard genreMovies={genreMovies} key={movie.id} movie={movie} />
+        ))}
+
+
+
       </div>
     </main>
   );
