@@ -18,6 +18,7 @@ import {
 
 export function YearsChart({averanges}) {
 
+ 
 
   const chartData = Object.keys(averanges).map(year => ({
   month: year,

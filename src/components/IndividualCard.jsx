@@ -23,9 +23,9 @@ export default function IndividualCard({movie, genreMovies}) {
 const genreNames = getGenreNames(movie.genre_ids, genreMovies);
 
   return (
-        <div className="mt-6 grid place-items-center font-mono">
+        <div className=" lg:mt-[10px] mt-6 grid place-items-center font-mono">
       
-      <div className=" rounded-md bg-gray-800 shadow-lg">
+      <div className=" rounded-md bg-gray-800 shadow-lg lg:pb-2">
         <div className="md:flex px-4 leading-none max-w-4xl">
           <div className="flex-none ">
            <Image
